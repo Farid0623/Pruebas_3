@@ -1,0 +1,19 @@
+# Ignorar node_modules
+node_modules/
+
+# Ignorar archivos de pruebas
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Ignorar archivos de desarrollo
+.git/
+.github/
+*.md
+.gitignore
+.env
+*.log
+
+# Ignorar archivos de configuración de pruebas
+playwright.config.js
+tests/

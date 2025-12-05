@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    restart: unless-stopped
+    container_name: sistema-citas-medicas
+
+  # Servicio opcional para pruebas E2E
+  test:
+    build: .
+    command: sh -c "npm install && npx playwright install --with-deps chromium && npm run test:e2e"
+    environment:
+      - CI=true
+    depends_on:
+      - app
+    profiles:
+      - test

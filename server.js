@@ -28,7 +28,8 @@ const validateEmail = (email) => {
 
 const validatePhone = (phone) => {
   const phoneRegex = /^\d{10}$/;
-  return phoneRegex.test(phone.replace(/[\s-]/g, ''));
+  const cleanPhone = String(phone).replace(/[\s-]/g, '');
+  return phoneRegex.test(cleanPhone) && phone.length >= 10 && phone.length <= 12;
 };
 
 const validateDateTime = (dateTime) => {

@@ -1,0 +1,26 @@
+{
+  "name": "medical-appointment-system-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the Medical Appointment Booking System",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "medical",
+    "appointment",
+    "booking",
+    "system"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

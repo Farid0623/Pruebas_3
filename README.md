@@ -49,6 +49,23 @@ npm run test:e2e
 npm run test:e2e:headed
 ```
 
+### Docker (Opcional)
+
+#### Construir y ejecutar con Docker
+```bash
+docker build -t sistema-citas-medicas .
+docker run -p 3000:3000 sistema-citas-medicas
+```
+
+#### Usar Docker Compose
+```bash
+# Iniciar aplicación
+docker-compose up
+
+# Ejecutar pruebas E2E en contenedor
+docker-compose --profile test run test
+```
+
 ## Estructura del Proyecto
 
 ```
@@ -74,3 +91,18 @@ npm run test:e2e:headed
 ## GitHub Actions
 
 El workflow de CI/CD ejecuta automáticamente las pruebas E2E en cada push/PR.
+
+## Documentación Adicional
+
+- 📖 **[TESTING.md](TESTING.md)** - Documentación detallada de pruebas y técnicas aplicadas
+- 📊 **[RESUMEN.md](RESUMEN.md)** - Resumen ejecutivo del proyecto
+- ⚡ **[QUICKSTART.md](QUICKSTART.md)** - Guía de inicio rápido
+- 📈 **[STATS.md](STATS.md)** - Estadísticas del proyecto
+
+## Tecnologías
+
+- **Backend**: Node.js 18+, Express 4.18.2
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Testing**: Playwright 1.40.0
+- **CI/CD**: GitHub Actions
+- **Containerización**: Docker (opcional)
