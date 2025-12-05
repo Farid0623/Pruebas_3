@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Citas Médicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Sistema de Citas Médicas</h1>
+            <p>Gestión de citas y pacientes</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="registro">Registro de Paciente</button>
+            <button class="tab-btn" data-tab="agendar">Agendar Cita</button>
+            <button class="tab-btn" data-tab="citas">Mis Citas</button>
+        </div>
+
+        <!-- Tab: Registro de Paciente -->
+        <div id="tab-registro" class="tab-content active">
+            <h2>Registro de Paciente</h2>
+            <form id="form-paciente" class="form-card">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Ej: Juan Pérez"
+                        required
+                        data-testid="patient-name"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input 
+                        type="text" 
+                        id="email" 
+                        name="email" 
+                        placeholder="ejemplo@correo.com"
+                        required
+                        data-testid="patient-email"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono *</label>
+                    <input 
+                        type="tel" 
+                        id="telefono" 
+                        name="telefono" 
+                        placeholder="1234567890"
+                        required
+                        data-testid="patient-phone"
+                    >
+                    <small>10 dígitos sin espacios ni guiones</small>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" data-testid="register-patient-btn">
+                    Registrar Paciente
+                </button>
+            </form>
+            
+            <div id="mensaje-registro" class="message" style="display: none;"></div>
+        </div>
+
+        <!-- Tab: Agendar Cita -->
+        <div id="tab-agendar" class="tab-content">
+            <h2>Agendar Cita Médica</h2>
+            <form id="form-cita" class="form-card">
+                <div class="form-group">
+                    <label for="paciente-select">Seleccionar Paciente *</label>
+                    <select 
+                        id="paciente-select" 
+                        name="paciente" 
+                        required
+                        data-testid="appointment-patient-select"
+                    >
+                        <option value="">-- Seleccione un paciente --</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctor-select">Seleccionar Doctor *</label>
+                    <select 
+                        id="doctor-select" 
+                        name="doctor" 
+                        required
+                        data-testid="appointment-doctor-select"
+                    >
+                        <option value="">-- Seleccione un doctor --</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha">Fecha *</label>
+                    <input 
+                        type="date" 
+                        id="fecha" 
+                        name="fecha" 
+                        required
+                        data-testid="appointment-date"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="hora">Hora *</label>
+                    <input 
+                        type="time" 
+                        id="hora" 
+                        name="hora" 
+                        required
+                        data-testid="appointment-time"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivo">Motivo de la Consulta</label>
+                    <textarea 
+                        id="motivo" 
+                        name="motivo" 
+                        rows="3"
+                        placeholder="Descripción breve del motivo de la consulta"
+                        data-testid="appointment-reason"
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" data-testid="schedule-appointment-btn">
+                    Agendar Cita
+                </button>
+            </form>
+            
+            <div id="mensaje-cita" class="message" style="display: none;"></div>
+        </div>
+
+        <!-- Tab: Mis Citas -->
+        <div id="tab-citas" class="tab-content">
+            <h2>Citas Agendadas</h2>
+            <div class="filter-group">
+                <label for="filtro-paciente">Filtrar por paciente:</label>
+                <select id="filtro-paciente" data-testid="filter-patient-select">
+                    <option value="">Todos los pacientes</option>
+                </select>
+                <button class="btn btn-secondary" onclick="cargarCitas()" data-testid="refresh-appointments-btn">
+                    🔄 Actualizar
+                </button>
+            </div>
+            
+            <div id="lista-citas" class="appointments-list">
+                <p class="text-center">No hay citas agendadas</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
